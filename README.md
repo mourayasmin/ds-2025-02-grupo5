@@ -7,6 +7,10 @@
 - Falta de confirmação de que o email utilizado é válido
 - Falta de controle para evitar inscrições duplicadas
 
+## Solução Proposta
+
+Como os stakeholders relataram mais dificuldades com relação a consistência geral dos dados das inscrições, tomamos como decisão focar nessa parte no decorrer da realização do trabalho e da disciplina. Uma vez que, também, os fornecedores desses requisitos possuem uma aplicação front-end já bem estruturada.
+
 ### Proposta inicial de arquitetura do sistema
 
 ```mermaid
