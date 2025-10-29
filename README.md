@@ -1,4 +1,4 @@
-(Link do primeiro protótipo)[https://preview--olimpiada-ia-inscricao.lovable.app]
+[Link do primeiro protótipo](https://preview--olimpiada-ia-inscricao.lovable.app)
 
 ### Proposta inicial de arquitetura do sistema
 
