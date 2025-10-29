@@ -1,6 +1,4 @@
-[Link do primeiro protótipo](https://preview--olimpiada-ia-inscricao.lovable.app)
-
-## Problemas encontrados ao conversar com stakeholders
+## Problemas relatados pelos stakeholders
 
 - Falta de validações dos campos utilizados para realizar inscrições
 - Retrabalho manual em fazer curadoria dos incritos para agrega-los por mentor e escola
@@ -199,3 +197,5 @@ sequenceDiagram
         N->>E: Email: Registro aprovado
     end
 ```
+
+[Link do primeiro protótipo](https://preview--olimpiada-ia-inscricao.lovable.app)
