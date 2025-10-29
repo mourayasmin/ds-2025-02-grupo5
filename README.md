@@ -1,5 +1,12 @@
 [Link do primeiro protótipo](https://preview--olimpiada-ia-inscricao.lovable.app)
 
+## Problemas encontrados ao conversar com stakeholders
+
+- Falta de validações dos campos utilizados para realizar inscrições
+- Retrabalho manual em fazer curadoria dos incritos para agrega-los por mentor e escola
+- Falta de confirmação de que o email utilizado é válido
+- Falta de controle para evitar inscrições duplicadas
+
 ### Proposta inicial de arquitetura do sistema
 
 ```mermaid
