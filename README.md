@@ -198,4 +198,10 @@ sequenceDiagram
     end
 ```
 
+### Stack proposta
+
+- Backend: Python + Docker
+- Banco de Dados: Postgres
+- Front-end para MVP: React + Next JS 
+
 [Link do primeiro protótipo](https://preview--olimpiada-ia-inscricao.lovable.app)
