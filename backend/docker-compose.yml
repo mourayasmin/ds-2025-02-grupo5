@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ai_olympics_postgres
+    environment:
+      POSTGRES_USER: ai_olympics_user
+      POSTGRES_PASSWORD: ai_olympics_password
+      POSTGRES_DB: ai_olympics_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ai_olympics_user -d ai_olympics_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ai_olympics_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai_olympics_backend
+    environment:
+      DATABASE_URL: postgresql://ai_olympics_user:ai_olympics_password@postgres:5432/ai_olympics_db
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8000
+      DEBUG: "True"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./migrations:/app/migrations
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ai_olympics_network
+    command: >
+      sh -c "sleep 5 && 
+             uvicorn src.app:app --host 0.0.0.0 --port 8000 --reload"
+
+volumes:
+  postgres_data:
+
+networks:
+  ai_olympics_network:
+    driver: bridge
