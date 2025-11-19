@@ -14,7 +14,7 @@ class Estudante(BaseEntity):
     email = Column(String(255), nullable=False)
     telefone = Column(String(20))
     escola_id = Column(Integer, ForeignKey("escolas.id"), nullable=False, index=True)
-    serie_ano = Column(String(20), nullable=False)
+    serie_ano = Column(String(100), nullable=False)
     turno = Column(String(20))
 
     # Relationships

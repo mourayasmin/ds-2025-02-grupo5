@@ -1,3 +1,63 @@
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+- Docker e Docker Compose instalados
+- Node.js 18+ e npm (para o frontend)
+
+### Backend (API)
+
+1. **Navegue para a pasta do backend:**
+   ```bash
+   cd backend
+   ```
+
+2. **Configure as variáveis de ambiente:**
+   ```bash
+   cp env.example .env
+   ```
+
+3. **Inicie os serviços com Docker Compose:**
+   ```bash
+   docker-compose up -d
+   ```
+
+4. **A API estará disponível em:**
+   - API: http://localhost:8000
+   - Documentação: http://localhost:8000/docs
+
+### Frontend
+
+1. **Navegue para a pasta do frontend:**
+   ```bash
+   cd front-end-incricoes-olimpiada-ia
+   ```
+
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure a URL da API (opcional):**
+   Crie um arquivo `.env.local`:
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:8000
+   ```
+
+4. **Execute o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Acesse a aplicação:**
+   - Frontend: http://localhost:3000
+
+### Parar os serviços
+
+- **Backend:** `docker-compose down` (na pasta `backend`)
+- **Frontend:** `Ctrl+C` no terminal
+
+---
+
 ## Problemas relatados pelos stakeholders
 
 - Falta de validações dos campos utilizados para realizar inscrições

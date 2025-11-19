@@ -15,5 +15,8 @@ echo "PostgreSQL is ready!"
 echo "Running migrations..."
 PGPASSWORD=ai_olympics_password psql -h localhost -U ai_olympics_user -d ai_olympics_db -f migrations/001_initial_schema.sql
 
+echo "Applying schema updates..."
+PGPASSWORD=ai_olympics_password psql -h localhost -U ai_olympics_user -d ai_olympics_db -f migrations/002_update_serie_ano_length.sql 2>/dev/null || echo "Migration 002 already applied or not needed"
+
 echo "Database initialized successfully!"
 
