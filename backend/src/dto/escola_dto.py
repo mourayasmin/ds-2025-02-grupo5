@@ -15,6 +15,7 @@ class EscolaBase(BaseModel):
     email: Optional[EmailStr] = None
     diretor_nome: Optional[str] = None
     ativo: bool = True
+    valida: bool = False
 
 
 class EscolaCreate(EscolaBase):
@@ -33,6 +34,7 @@ class EscolaUpdate(BaseModel):
     email: Optional[EmailStr] = None
     diretor_nome: Optional[str] = None
     ativo: Optional[bool] = None
+    status: Optional[bool] = None
 
 
 class EscolaResponse(EscolaBase):

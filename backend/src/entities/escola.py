@@ -17,6 +17,7 @@ class Escola(BaseEntity):
     email = Column(String(255))
     diretor_nome = Column(String(255))
     ativo = Column(Boolean, default=True)
+    valida = Column(Boolean, default=False)
 
     # Relationships
     estudantes = relationship("Estudante", back_populates="escola", cascade="all, delete-orphan")
