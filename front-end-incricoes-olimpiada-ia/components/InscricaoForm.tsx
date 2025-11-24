@@ -9,12 +9,14 @@ import { getActiveEscolas, createEscola } from '@/lib/api/escolas';
 import { getEstudanteByCpf, createEstudante, updateEstudante } from '@/lib/api/estudantes';
 import { createInscricao } from '@/lib/api/inscricoes';
 import type { Escola, Estudante } from '@/types';
+import { useRouter } from 'next/navigation';
 
 interface FormErrors {
   [key: string]: string;
 }
 
 export function InscricaoForm() {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [checkingCpf, setCheckingCpf] = useState(false);
   const [alert, setAlert] = useState<{ type: 'success' | 'error' | 'info' | 'warning'; message: string } | null>(null);
@@ -250,7 +252,7 @@ export function InscricaoForm() {
       setAlert({ type: 'success', message: 'Inscrição realizada com sucesso! Você receberá um email de confirmação em breve.' });
       
       // Reset form
-      setTimeout(() => {
+      setTimeout(() => { router.push('https://olimpiadaia.ceia.ai');
         setParticipanteForm({
           cpf: '',
           nome_completo: '',
