@@ -18,6 +18,7 @@ class Escola(BaseEntity):
     diretor_nome = Column(String(255))
     ativo = Column(Boolean, default=True)
     valida = Column(Boolean, default=False)
+    codigoMEC = Column(String(8), nullable=False)
 
     # Relationships
     estudantes = relationship("Estudante", back_populates="escola", cascade="all, delete-orphan")

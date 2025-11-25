@@ -16,6 +16,7 @@ class EscolaBase(BaseModel):
     diretor_nome: Optional[str] = None
     ativo: bool = True
     valida: bool = False
+    codigoMEC: str
 
 
 class EscolaCreate(EscolaBase):
@@ -35,6 +36,7 @@ class EscolaUpdate(BaseModel):
     diretor_nome: Optional[str] = None
     ativo: Optional[bool] = None
     status: Optional[bool] = None
+    codigoMEC: Optional[str] = None
 
 
 class EscolaResponse(EscolaBase):
