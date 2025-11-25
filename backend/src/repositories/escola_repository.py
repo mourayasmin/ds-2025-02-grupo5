@@ -22,4 +22,7 @@ class EscolaRepository(BaseRepository[Escola]):
     def get_active(self) -> List[Escola]:
         """Get all active escolas."""
         return self.db.query(Escola).filter(Escola.ativo == True).all()
-
+    
+    def search_by_name(self, nome: str) -> List[Escola]:
+        """Search escolas by name."""
+        return self.db.query(Escola).filter(Escola.nome.ilike(f"%{nome}%")).all()

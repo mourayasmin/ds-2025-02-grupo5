@@ -25,6 +25,18 @@ def get_escolas(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     service = EscolaService(db)
     return service.get_all_escolas(skip=skip, limit=limit)
 
+@router.get("/search", response_model=List[EscolaResponse])
+def get_escolas_by_name(nome: str, db: Session = Depends(get_db)
+):
+    """Search escolas by name."""
+    service = EscolaService(db)
+    escolas = service.get_escolas_by_name(nome)
+    if not escolas:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No escolas found with name containing '{nome}'"
+        )
+    return escolas
 
 @router.get("/{escola_id}", response_model=EscolaResponse)
 def get_escola(escola_id: int, db: Session = Depends(get_db)):
@@ -79,4 +91,3 @@ def delete_escola(escola_id: int, db: Session = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Escola with ID {escola_id} not found"
         )
-

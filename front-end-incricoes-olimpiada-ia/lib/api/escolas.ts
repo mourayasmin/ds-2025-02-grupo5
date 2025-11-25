@@ -17,6 +17,10 @@ export async function getActiveEscolas(): Promise<Escola[]> {
   return apiRequest<Escola[]>(`/escolas/status/active`);
 }
 
+export async function getEscolaByName(nome: string): Promise<Escola[]> {
+  return apiRequest<Escola[]>(`/escolas/name/nome`);
+}
+
 export async function createEscola(escola: EscolaCreate): Promise<Escola> {
   // Remove campos vazios opcionais antes de enviar
   const payload = Object.fromEntries(

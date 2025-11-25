@@ -65,3 +65,6 @@ class EscolaService:
         """Delete escola."""
         return self.repository.delete(escola_id)
 
+    def get_escolas_by_name(self, nome: str) -> List[Escola]:
+        """Search escolas by name."""
+        return self.repository.search_by_name(nome)
